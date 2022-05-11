@@ -22,8 +22,12 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('user.index');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('/home', function () {
+    return redirect('/');
+})->middleware(['auth'])->name('home');
 
 require __DIR__.'/auth.php';
 
